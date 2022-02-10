@@ -385,7 +385,7 @@ def CCompiler_link_executable(self,
 replace_method(CCompiler, 'compile', CCompiler_compile)
 # iOS: 
 if "PLATFORM" in os.environ:
-    if (os.getenv('PLATFORM').startswith('iphone')):
+    if os.getenv('PLATFORM').startswith('iphone') or os.getenv('PLATFORM').startswith('maccatalyst'):
         replace_method(CCompiler, 'link_executable', CCompiler_link_executable)
 
 
